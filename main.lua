@@ -41,6 +41,10 @@ function love.update(dt)
     -- dt means delta time. multiply with it to make changes framerate independent
 end
 
+function love.resize(w,h)
+    push:resize(w,h)
+end
+    
 function love.keypressed(key)
     --key returns the pressed key
     if key == "escape" then
