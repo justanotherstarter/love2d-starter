@@ -8,8 +8,8 @@ Class = require "class"
 WINDOW_WIDTH = 1280
 WINDOW_HEIGHT = 720
 
-VIRTUAL_WIDTH = 432
-VIRTUAL_HEIGHT = 243
+V_WIDTH = 450
+V_HEIGHT = 250
 
 function love.load()
     love.graphics.setDefaultFilter("nearest", "nearest")
@@ -18,8 +18,8 @@ function love.load()
     love.graphics.setFont(smallFont)
 
     push:setupScreen(
-        VIRTUAL_WIDTH,
-        VIRTUAL_HEIGHT,
+        V_WIDTH,
+        V_HEIGHT,
         WINDOW_WIDTH,
         WINDOW_HEIGHT,
         {
@@ -32,7 +32,7 @@ end
 
 function love.draw()
     push:apply("start")
-    love.graphics.printf("Hello World", 0, VIRTUAL_HEIGHT / 2 - 6, VIRTUAL_WIDTH, "center") -- we subtract 6 from height as the default font height is 12px
+    love.graphics.printf("Hello World", 0, V_HEIGHT / 2 - 6, V_WIDTH, "center") -- we subtract 6 from height as the default font height is 12px
 
     push:apply("end")
 end
@@ -41,13 +41,14 @@ function love.update(dt)
     -- dt means delta time. multiply with it to make changes framerate independent
 end
 
-function love.resize(w,h)
-    push:resize(w,h)
+function love.resize(w, h)
+    push:resize(w, h)
 end
-    
+
 function love.keypressed(key)
     --key returns the pressed key
     if key == "escape" then
         love.event.quit()
     end
 end
+
